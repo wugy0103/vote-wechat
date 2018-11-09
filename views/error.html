@@ -1,0 +1,68 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>服务器异常</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .error {
+            text-align: center;
+            width: 250px;
+            height: 280px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .red {
+            color: red !important;
+        }
+        #tip {
+            font-size: 14px;
+            color: #999;
+        }
+    </style>
+
+</head>
+<body>
+<div class="error">
+    <img src="/common/img/error.png" alt="错误提示">
+    <!-- 正常情况 -->
+    {{if error == -1}}
+    <p class="fl">{{message}}</p>
+    {{/if}}
+    <!-- 通信有问题 -->
+    {{if error != -1}}
+    <p>服务器异常</p>
+    <script>
+        var error = {{error}};
+        console.log("通信error:",error);
+        var message = {{message}};
+        console.log("响应报文response:",message);
+    </script>
+    {{/if}}
+    <!-- <p class="fl" id="tip"><span id="tiptime">2</span> 秒后跳转商城首页</p> -->
+    
+</div>
+<!-- <script>
+    clearInterval(timer);
+    var time = 2;
+    var timer = setInterval(function(){
+        time--;
+        if(time<1){
+            clearInterval(timer);
+            window.location.href = "http://m.daxmall.com/";
+        }
+        document.getElementById("tiptime").innerText = time;
+        
+    },1000);
+</script> -->
+</body>
+</html>
+
+

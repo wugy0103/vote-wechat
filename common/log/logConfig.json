@@ -1,0 +1,18 @@
+{  
+    "customBaseDir" :"/Users/zzc/logs/vote_wechat_err",  
+    "customDefaultAtt" :{  
+        "type": "dateFile",  
+        "absolute": true,
+        "alwaysIncludePattern": true,
+        "maxLogSize": 20480
+    },  
+    "appenders": [  
+            {"type": "console", "category": "console"},  
+            {"pattern": "debug/yyyyMMdd.txt", "category": "logDebug"},  
+            {"pattern": "info/yyyyMMddhh.txt", "category": "logInfo"},  
+            {"pattern": "warn/yyyyMMdd.txt", "category": "logWarn"},  
+            {"pattern": "err/yyyyMMdd.txt", "category": "logErr"}  
+        ],  
+     "replaceConsole": true,  
+     "levels":{ "logDebug": "DEBUG", "logInfo": "DEBUG", "logWarn": "DEBUG", "logErr": "DEBUG"}  
+}  

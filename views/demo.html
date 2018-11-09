@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html ng-app="topic" ng-cloak>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <!-- 删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!-- 设置苹果工具栏颜色 -->
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name='apple-itunes-app' content='app-id=477927812'>
+    <!-- 适应移动端end -->
+    <title>{{subjectInfo.shortTitle}}</title>
+    <link rel="stylesheet" href="/topic/css/index.css">
+    <script src="/topic/js/hotcss.js"></script>
+</head>
+<body>
+<!--主题内容-->
+<input type="hidden" id='shareData'/>
+
+<div class="topic-w">
+    <div class="topic-inner">
+        {{each subjectInfo.templateList as item i}}
+        <div class="layoutContent">
+            <!--单图模板-->
+            {{if item.type=='1'}}
+            <div class="s1">
+                <!--模板名-->
+                <!--<div class="line-tempName"><span ng-bind="item.templateName"></span></div>-->
+                {{each item.templatePics}}
+                <a href="{{$value.picLink}}">
+                    <!--<img onerror="onerror=null; src='/common/img/placeholder.png'" data-original="/topic/img/1.jpg"/>-->
+                    <img onerror="onerror=null; src='/common/img/placeholder.png'" src="{{$value.templatePic}}"/>
+                </a>
+                {{/each}}
+            </div>
+            {{/if}}
+            <!--双图模板-->
+            {{if item.type=='2'}}
+            <div class="s2" style="margin:0 auto 0px auto;">
+                <!--模板名-->
+                <!--<div class="line-tempName"><span ng-bind="item.templateName"></span></div>-->
+                <ul class="list">
+                    {{each item.templatePics}}
+                    <li>
+                        <a href="{{$value.picLink}}">
+                            <!--<img onerror="onerror=null; src='/common/img/placeholder.png'" data-original="/topic/img/1.jpg"/>-->
+                            <img onerror="onerror=null; src='/common/img/placeholder.png'"
+                                 src="{{$value.templatePic}}"/>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+                <div class="clear-fix"></div>
+            </div>
+            {{/if}}
+            <!--列表模板-->
+            {{if item.type=='3'}}
+            <div class="s4" style="margin:0px auto 0 auto;">
+                <!--模板名-->
+                <!--<div class="line-tempName"><span ng-bind="item.templateName"></span></div>-->
+                <ul class="good-list">
+                    {{each item.templateProds}}
+                    <li>
+                        <a href="{{subjectInfo.mallBase}}/views/{{$value.prodId}}">
+                            <div>
+                                <!--<img onerror="onerror=null; src='/common/img/placeholder.png'"-->
+                                <!--data-original="/topic/img/5.jpg"/> -->
+                                <img onerror="onerror=null; src='/common/img/placeholder.png'"
+                                     src="{{$value.pic}}"/>
+                            </div>
+                            <p>{{$value.name}}</p>
+                            <span>¥{{$value.cash}}</span>
+                            <!--<del>¥450.00</del>-->
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+                <div class="clear-fix"></div>
+            </div>
+            {{/if}}
+        </div>
+        <!--//布局样式-->
+        {{/each}}
+    </div>
+    <a class="to-shop" href="{{subjectInfo.mallBase}}"><img  src='/topic/img/11.png'/></a>
+     <div class="to-top" id="returnTop" style="display: block!important;"><img src='/topic/img/12.png'/></div>
+</div>
+</div>
+
+
+<script src="/common/js/zepto.min.js"></script>
+<script src="/common/js/lazyload.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/common/js/public.js"></script>
+<script>
+    $("img").lazyload({
+        threshold: 200,
+        placeholder_real_img: "/common/img/placeholder.png",
+        effect: "fadeIn"
+    });
+    var title = "{{subjectInfo.shortTitle}}";
+    var desc = "{{subjectInfo.longTitle}}";
+
+    $.when(wechatConfig.init()).done(function () {
+        wx.ready(function () {
+            var sdata = {
+                title: title,
+                desc: desc,
+                link: location.href,
+                imgUrl: "{{subjectInfo.wxPreviewPic}}"
+            };
+            wx.onMenuShareTimeline(sdata);
+            wx.onMenuShareAppMessage(sdata);
+        });
+    });
+    var data = {
+        "title": title,
+        "id": '',
+        "img_url": "{{subjectInfo.wxPreviewPic}}",
+        "content": desc,
+        "http_url": location.href
+    }
+    var paramsData = JSON.stringify(data);
+    $('#shareData').val(paramsData);
+
+//    返回顶部
+   $('#returnTop').click(function(){
+     scrollTo(0,0);
+   });
+</script>
+<!--运维统计代码-->
+<script type="text/javascript" src="https://img.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+<script src="http://121.201.68.21:8080/tenglan.js"></script>
+<script src="/common/js/tingyun-rum.js"></script>
+<script>
+    $(function () {
+        //统计代码
+        sniffer.report_url = 'http://121.201.68.21:8000/api/data/report/'; //#监测结果汇报地址
+        //sniffer.report_url = 'http://121.201.68.21:8000/api/data/report/'; //#监测结果汇报地址
+        //sniffer.bandwith_test_img = 'http://www.baidu.com';// #如果要测试用户带宽，指定下载测试图片
+        sniffer.site_id = 1; //#这是在服务器端帮这个站点分配的站点id
+        //sniffer.bandwith_test_img_size = 2500; //#写清楚你要测试下载的图片大小，不测试带宽的话不需要
+        var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_=' + Math.random();
+        $.getJSON(url, function (data) {
+            //sniffer.site_id.push(data.Ip)  ;
+            sniffer.ip = data.Ip;//获取客户端的IP地址
+            sniffer.collect(sniffer); //#开始收集数据并向服务器端汇报
+            //alert(sniffer.site_id)
+            console.log(sniffer.ip);
+
+        });
+    })
+</script>
+</body>
+</html>
