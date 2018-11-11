@@ -30,6 +30,10 @@ app.use('/common/getSignature', getSignature);
 var test = require('./routes/test.js');
 app.use('/', test);
 
+//测试sql页面
+var testsql = require('./routes/testsql.js');
+app.use('/testsql/', testsql);
+
 //demo
 var demo = require('./routes/demo/index.js');
 app.use('/demo/', demo);
