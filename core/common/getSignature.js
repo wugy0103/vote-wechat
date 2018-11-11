@@ -74,7 +74,10 @@ signature.GetTicket = function(req, res, next) {
                 ticketKeepTime=new Date().getTime();
                 return next();
             }
-            return res.render({ error: json.errcode, message: json.errmsg });
+            return res.render('error', {
+                error: json.errcode,
+                message: json.errmsg
+            });
         } else {
             return res.render('error', { error: -2, message: "服务器异常" });
         }

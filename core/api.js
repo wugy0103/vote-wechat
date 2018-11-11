@@ -6,9 +6,9 @@ apis.contentHeader = { 'Content-Type': 'application/json' };
 // 微信API接口地址
 var wechatBaseUrl = 'https://api.weixin.qq.com/cgi-bin/';
 // 微信appid
-apis.appid = "wx28f1b8e6ba03bc93";
+apis.appid = "wx4ce4c73bd3de16d8";
 // 微信appsecret
-apis.appsecret = "0897e14c100d352d2bd45f4454e8bd30";
+apis.appsecret = "8870969e8a9b730a23356303a51673f1";
 // 获取微信access_token
 apis.AccessTokenUrl = wechatBaseUrl+"token";
 apis.GetAccessToken = { url: apis.AccessTokenUrl, method: "GET", headers: apis.contentHeader };
