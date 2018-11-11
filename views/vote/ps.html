@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>安排上了！台山市国家机关“谁执法谁普法”履职报告评议活动网上投票开启啦！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link href="./css/app.min.css" rel="stylesheet">
+    <style>
+        .bg-intro {
+                background-image: url(./images/icon/bg.jpg);
+                background-color: #eae9e4;
+            }
+            .banner {
+                text-align: center;
+                background-color: #fff;
+                padding: 0!important;
+                margin-bottom: 4vw;
+                min-height: 32vw;
+                overflow: hidden;
+                border: 2px solid #fff;
+            }
+            .hidden { display: none }
+            .btn {
+                font-size: 13px;
+                line-height: 36px;
+                border: 0;
+            }
+            .btn-back {
+                margin: 20px auto 0;
+                display: block;
+                width: 32vw;
+                text-align: center;
+                text-decoration: none;
+                padding: 0;
+            }
+            .mark-topic { line-height: 24px; }
+            .mark-item:not(.mark-topic) { font-size: 12px; padding: 0 }
+            .btn-submit {
+                background-color: #00bcd4;
+                color: #fff;
+                width: 32vw;
+            }
+
+            .mark-item.selected:before {
+                border-color: #00bcd4;
+                background-color: #00bcd4;
+            }
+
+            .intro-content img { width: 100%; }
+            .intro { padding: 0 3vw; }
+            .intro-wrapper {
+                background-color: #fefdf6;
+                border-radius: 8px;
+                padding: 4vw 3vw;
+            }
+
+            .btns {
+                padding: 20px 0 0 0;
+                text-align: center;
+            }
+
+            .btn {
+                display: inline-block;
+                margin: 0;
+            }
+
+            .btn + .btn { margin-left: 10px; }
+            .intro-content p{text-align: justify}
+
+            .comment {
+                -webkit-transform: translate3d(0,100vh,0);
+                -webkit-transform-origin: center bottom;
+                transform: translate3d(0,100vh,0);
+                transform-origin: center bottom;
+            }
+            .animated {
+                -webkit-transition: transform .2s ease-in-out;
+                transition: transform .2s ease-in-out;
+            }
+            .animating {
+                -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0);
+            }
+            .no-comment {
+                text-align: center;
+                padding: 40vw 0 0;
+            }
+
+            .comment-name.admin:before { background-color: #00bcd4; }
+            .comment-text { color: #777; }
+            .comment-message { padding-top: 0; }
+            .comment-name, .comment-text { font-size: 14px; }
+
+            .close {
+                background-color: rgba(0,0,0,.32);
+                border: 2px solid #fff;
+                border-radius: 50%;
+            }
+            .close:before, .close:after {
+                width: 5vw;
+                background-color: #fff;
+            }
+            /* .intro-title {
+                color: #2977CA;
+                width: auto !important;
+                font-size: 18px;
+            } */
+        </style>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=20141202"></script>
+    <script type="text/javascript">
+
+        var WXJSSDK = WXJSSDK || {}, WXAPI = WXAPI || {};
+        WXJSSDK.load = function (e) {
+            e.config && wx.config(e.config), wx.ready(function () {
+                e.ready && e.ready();
+            });
+        }, WXAPI.shares = function (e) {
+            wx.showOptionMenu(), wx.onMenuShareTimeline({
+                title: e.title,
+                link: e.shareCircle ? e.shareCircle : e.link,
+                imgUrl: e.imgUrl,
+                success: function () {
+                    "function" === typeof e.shareTimelineCallback && e.shareTimelineCallback();
+                },
+                cancel: function () { }
+            }), wx.onMenuShareAppMessage({
+                title: e.title,
+                desc: e.desc,
+                link: e.shareFriend ? e.shareFriend : e.link,
+                imgUrl: e.imgUrl,
+                type: e.type ? e.type : "link",
+                dataUrl: e.dataUrl ? e.dataUrl : "",
+                success: function () {
+                    "function" === typeof e.shareAppMessageCallback && e.shareAppMessageCallback();
+                },
+                cancel: function () { }
+            }), wx.onMenuShareQQ({
+                title: e.title,
+                desc: e.desc,
+                link: e.shareQQ ? e.shareQQ : e.link,
+                imgUrl: e.imgUrl,
+                success: function () { },
+                cancel: function () { }
+            }), wx.onMenuShareWeibo({
+                title: e.title,
+                desc: e.desc,
+                link: e.shareWeibo ? e.shareWeibo : e.link,
+                imgUrl: e.imgUrl,
+                success: function () { },
+                cancel: function () { }
+            });
+        }, window.WXAPI = WXAPI;
+        var wxShareData = {
+            title: "江门高新区（江海区）2018国家机关“谁执法谁普法”履职报告评议投票活动",
+            desc: "区检察院",
+            imgUrl: "http://wx.jmyuanren.com/Addons/TxPyhd/View/default/static/img/share.jpg",
+            shareFriend: "http://wx.jmyuanren.com/addon/TxPyhd/Front/items/item_id/7/token/gh_68921624a61d.html",
+            shareCircle: "http://wx.jmyuanren.com/addon/TxPyhd/Front/items/item_id/7/token/gh_68921624a61d.html",
+        };
+        WXJSSDK.load({
+            config: {
+                debug: false,
+                appId: "wx0f0e3ccca3a6ce5f",
+                timestamp: "1541501069",
+                nonceStr: "Wm3WZYTPz0wzccnW",
+                signature: "c9b116d95897621be42c0725fa08d28cbf4509aa",
+                jsApiList: ["onMenuShareAppMessage", "onMenuShareTimeline",]
+            },
+            ready: function () {
+                WXAPI.shares(wxShareData);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="bg-intro"></div>
+    <div class="app page-intro">
+        <div class="page">
+            <div class="title">台山市人民法院</div>
+            <div class="banner"><img src="./images/court/court1.jpeg"></div>
+            <div class="intro">
+                <div class="intro-title"><img src="./images/icon/intro_1.png"></div>
+                <div class="intro-wrapper">
+                    <div class="intro-content">
+                        <p>
+                            <p style="line-height:30px; font-size: 20px;     text-align: center; margin-bottom: 3vw;color: #f00;">公正司法，多维普法<br />助力法治台山建设</p>
+                            <p style="text-indent:2em">近年来，台山法院立足经济社会发展大局，深入贯彻“依法治国”基本方略，紧紧围绕“努力让人民群众在每一个司法案件中感受到公平正义”目标，强化普法责任担当，实化宪法法律宣传，积极创建普法教育新载体、新形式、新方法，通过依法公正审判、庭审直播公开，加强普法宣传等有效措施，努力提升公民法治素养，营造全社会尊法学法守法用法的法治氛围。
+
+                            </p>
+                            <p style="text-indent:2em"><br /></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>一、自觉担当普法责任，努力践行全面依法治国方略
+                                    </strong></span></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">为推进普法工作深入开展，近年来，台山法院按照“七五”普法规划，以夯实普法基础、落实普法责任为出发点，着力构建“谁执法谁普法”责任机制，推动普法工作落地生根。
+                            </p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p><img src="./images/court/court2.jpeg" /><br /></p>
+                            <p><br /></p>
+
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>二、坚持抓好法律学习，全面提高普法队伍素质
+
+                                    </strong></span></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">学法用法是深入推进普法工作的基础。我院以创建“学习型”法院为抓手，不断加强普法队伍建设，开展形式多样的学法活动推动干警学法用法常态化，提升干警队伍的法治素质，为普法工作的全面开展提供有力的人才保障。
+
+                            </p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p><img src="./images/court/court3.jpeg" /><br /></p>
+                            <p><br /></p>
+
+
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>三、融合司法实践，打造普法“第一课堂”
+
+
+                                    </strong></span></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">将普法工作融入到严格公正司法的全过程，引导当事人尊法学法守法用法，是法院担负的重要职责使命。我院充分发挥司法活动的教育、评价、指引、示范功能，将普法工作覆盖到刑事、民事、执行全领域，贯穿到诉讼服务、司法办案、司法公开各个环节，努力打造普法“第一课堂”。
+
+
+                            </p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p><img src="./images/court/court4.jpeg" /><br /></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>四、服务台山发展大局，构建法院普法新常态
+
+
+
+                                    </strong></span></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">我院始终牢固树立服务大局意识，紧紧围绕市委中心工作，主动延伸职能，为我市经济发展、法治建设提供高效优质的法律服务，努力构建法院普法新常态。
+
+
+
+                            </p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p><img src="./images/court/court5.jpeg" /><br /></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>五、创新宣传形式，增强法院普法实效
+
+
+
+
+                                    </strong></span></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">习近平总书记多次强调法治宣传教育“要创新宣传形式，注重宣传实效”。我院坚持与时俱进，依托现代信息技术，不断拓宽法律宣传渠道、丰富普法宣传形式，将法律常识、法治思想传至千家万户，形成“人人懂法、事事用法”的良好法治氛围。
+
+
+
+                            </p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p><img src="./images/court/court6.jpeg" /><br /></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p><img src="./images/court/court7.jpeg" /><br /></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">普法是全面依法治国的基础。市法院切实围绕审判执行职能，将普法工作融入日常工作，落到实处，进一步深化法治创建工作，为营造全市崇尚法治、践行法治的良好环境作出贡献。
+
+
+                            </p>
+                            <p><br /></p>
+
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="intro" style=" margin-top: 10vw ">
+                <div class="intro-title"><img src="./images/icon/intro_2.png"></div>
+                <div class="intro-content">
+                    <div class="mark cl">
+                        <div class="mark-item mark-topic">您对我们“谁执法谁普法”的工作评价如何？</div>
+                        <div class="mark-item mark-option" data-value="0">很好</div>
+                        <div class="mark-item mark-option" data-value="1">良好</div>
+                        <div class="mark-item mark-option" data-value="2">一般</div>
+                        <div class="mark-item mark-topic btns">
+                            <a class="btn btn-back" href="./index.html">返回首页</a>
+                            <div class="btn btn-submit">提交</div>
+                        </div>
+                    </div>
+                    <!--a class="btn btn-back" href="javascript:history.back();">返回首页</a-->
+                    <input type="hidden" name="answer_id">
+                    <input type="hidden" name="item_id" value="7">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/zepto.min.js"></script>
+    <script>
+
+
+        $(function () {
+            $('.mark-option').on('click', function (e) {
+                var el = $(this);
+                $('.mark-item.selected').removeClass('selected');
+                el.addClass('selected');
+                $('[name="answer_id"]').val(el.data('value'));
+            });
+
+            $('.btn-submit').on('click', function () {
+                var el = $(this);
+                if (el.hasClass('submitting'))
+                    return;
+
+                var answer_id = parseInt($('[name="answer_id"]').val());
+                var item_id = parseInt($('[name="item_id"]').val());
+
+                if (isNaN(answer_id))
+                    return alert('请选择您的评价');
+                el.text('提交中 ...').addClass('submitting');
+                $.post('http://wx.jmyuanren.com/addon/TxPyhd/Front/ajaxVote/token/gh_68921624a61d/item_id/7.html', { answer_id: answer_id, item_id: item_id }, function (json) {
+                    el.text('提交')
+                    if (json.error == 0) {
+                        $('.btn-submit').addClass('hidden');
+                        alert('提交成功，感谢您对我们的工作支持。');
+                    } else {
+                        alert(json.msg);
+                        el.removeClass('submitting');
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>

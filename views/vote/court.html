@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>安排上了！台山市国家机关“谁执法谁普法”履职报告评议活动网上投票开启啦！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link href="./css/app.min.css" rel="stylesheet">
+    <style>
+        .bg-intro {
+                background-image: url(./images/icon/bg.jpg);
+                background-color: #eae9e4;
+            }
+            .banner {
+                text-align: center;
+                background-color: #fff;
+                padding: 0!important;
+                margin-bottom: 4vw;
+                min-height: 32vw;
+                overflow: hidden;
+                border: 2px solid #fff;
+            }
+            .hidden { display: none }
+            .btn {
+                font-size: 13px;
+                line-height: 36px;
+                border: 0;
+            }
+            .btn-back {
+                margin: 20px auto 0;
+                display: block;
+                width: 32vw;
+                text-align: center;
+                text-decoration: none;
+                padding: 0;
+            }
+            .mark-topic { line-height: 24px; }
+            .mark-item:not(.mark-topic) { font-size: 12px; padding: 0 }
+            .btn-submit {
+                background-color: #00bcd4;
+                color: #fff;
+                width: 32vw;
+            }
+
+            .mark-item.selected:before {
+                border-color: #00bcd4;
+                background-color: #00bcd4;
+            }
+
+            .intro-content img { width: 100%; }
+            .intro { padding: 0 3vw; }
+            .intro-wrapper {
+                background-color: #fefdf6;
+                border-radius: 8px;
+                padding: 4vw 3vw;
+            }
+
+            .btns {
+                padding: 20px 0 0 0;
+                text-align: center;
+            }
+
+            .btn {
+                display: inline-block;
+                margin: 0;
+            }
+
+            .btn + .btn { margin-left: 10px; }
+            .intro-content p{text-align: justify}
+
+            .comment {
+                -webkit-transform: translate3d(0,100vh,0);
+                -webkit-transform-origin: center bottom;
+                transform: translate3d(0,100vh,0);
+                transform-origin: center bottom;
+            }
+            .animated {
+                -webkit-transition: transform .2s ease-in-out;
+                transition: transform .2s ease-in-out;
+            }
+            .animating {
+                -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0);
+            }
+            .no-comment {
+                text-align: center;
+                padding: 40vw 0 0;
+            }
+
+            .comment-name.admin:before { background-color: #00bcd4; }
+            .comment-text { color: #777; }
+            .comment-message { padding-top: 0; }
+            .comment-name, .comment-text { font-size: 14px; }
+
+            .close {
+                background-color: rgba(0,0,0,.32);
+                border: 2px solid #fff;
+                border-radius: 50%;
+            }
+            .close:before, .close:after {
+                width: 5vw;
+                background-color: #fff;
+            }
+            /* .intro-title {
+                color: #2977CA;
+                width: auto !important;
+                font-size: 18px;
+            } */
+        </style>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=20141202"></script>
+    <script type="text/javascript">
+
+        var WXJSSDK = WXJSSDK || {}, WXAPI = WXAPI || {};
+        WXJSSDK.load = function (e) {
+            e.config && wx.config(e.config), wx.ready(function () {
+                e.ready && e.ready();
+            });
+        }, WXAPI.shares = function (e) {
+            wx.showOptionMenu(), wx.onMenuShareTimeline({
+                title: e.title,
+                link: e.shareCircle ? e.shareCircle : e.link,
+                imgUrl: e.imgUrl,
+                success: function () {
+                    "function" === typeof e.shareTimelineCallback && e.shareTimelineCallback();
+                },
+                cancel: function () { }
+            }), wx.onMenuShareAppMessage({
+                title: e.title,
+                desc: e.desc,
+                link: e.shareFriend ? e.shareFriend : e.link,
+                imgUrl: e.imgUrl,
+                type: e.type ? e.type : "link",
+                dataUrl: e.dataUrl ? e.dataUrl : "",
+                success: function () {
+                    "function" === typeof e.shareAppMessageCallback && e.shareAppMessageCallback();
+                },
+                cancel: function () { }
+            }), wx.onMenuShareQQ({
+                title: e.title,
+                desc: e.desc,
+                link: e.shareQQ ? e.shareQQ : e.link,
+                imgUrl: e.imgUrl,
+                success: function () { },
+                cancel: function () { }
+            }), wx.onMenuShareWeibo({
+                title: e.title,
+                desc: e.desc,
+                link: e.shareWeibo ? e.shareWeibo : e.link,
+                imgUrl: e.imgUrl,
+                success: function () { },
+                cancel: function () { }
+            });
+        }, window.WXAPI = WXAPI;
+        var wxShareData = {
+            title: "江门高新区（江海区）2018国家机关“谁执法谁普法”履职报告评议投票活动",
+            desc: "区检察院",
+            imgUrl: "http://wx.jmyuanren.com/Addons/TxPyhd/View/default/static/img/share.jpg",
+            shareFriend: "http://wx.jmyuanren.com/addon/TxPyhd/Front/items/item_id/7/token/gh_68921624a61d.html",
+            shareCircle: "http://wx.jmyuanren.com/addon/TxPyhd/Front/items/item_id/7/token/gh_68921624a61d.html",
+        };
+        WXJSSDK.load({
+            config: {
+                debug: false,
+                appId: "wx0f0e3ccca3a6ce5f",
+                timestamp: "1541501069",
+                nonceStr: "Wm3WZYTPz0wzccnW",
+                signature: "c9b116d95897621be42c0725fa08d28cbf4509aa",
+                jsApiList: ["onMenuShareAppMessage", "onMenuShareTimeline",]
+            },
+            ready: function () {
+                WXAPI.shares(wxShareData);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="bg-intro"></div>
+    <div class="app page-intro">
+        <div class="page">
+            <div class="title">台山供电局</div>
+            <div class="banner"><img src="./images/ps/ps1.jpg"></div>
+            <div class="intro">
+                <div class="intro-title"><img src="./images/icon/intro_1.png"></div>
+                <div class="intro-wrapper">
+                    <div class="intro-content">
+                        <p>
+                            <p style="line-height:30px; font-size: 20px;     text-align: center; margin-bottom: 3vw;color: #f00;">依法做好电力供应<br />深入开展普法工作</p>
+                            <p style="text-indent:2em">2018年以来，台山供电局在台山市委市政府和公司上级的领导下，秉持南方电网“人民电业为人民”的企业宗旨，全面推进依法经营管理，将普法工作融入到生产营销及企业管理等各个环节，有效地提升了全局职工的法律意识，同时加大面向用户的法制宣传力度，为地区的普法工作作出了应有的贡献。
+
+                            </p>
+                            <p style="text-indent:2em"><br /></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>​一、加强领导，完善机制，形成有力支撑保障
+                                    </strong></span></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">一是成立党政一把手负责的普法领导小组。二是配合创建普法平台。配合江门供电局打造电网“法律诊所”普法工作平台，选取普法讲师团参与普法讲师团队，并按领域分为电网建设、市场营销、安全生产、劳动用工四个讲师团。​
+                            </p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p><img src="./images/ps/ps2.jpg" /><br /></p>
+                            <p><br /></p>
+
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>二、纵深贯通，夯实根基，全面提升员工法律意识
+
+                                    </strong></span></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">一是严格落实党委中心组学法。每年组织开展至少两次党委中心组学法活动。二是深入开展领导干部法治建设“六个一”活动。三是实现员工菜单式网络学法。利用电网企业培训评价系统，嵌入普法课程，每年要求员工完成固定课时学习，提升业务法律技能。
+
+                            </p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p><img src="./images/ps/ps3.jpg" /><br /></p>
+                            <p><br /></p>
+
+
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>三、横向协同，携手拓展，构建政企法治共建合作
+
+
+                                    </strong></span></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">​一是建立政企法治共建机制。
+
+
+                            </p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p><img src="./images/ps/ps4.jpg" /><br /></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">二是履行电力普法社会责任。台山供电局以电力普法舞台剧、微电影、现场咨询等生动的形式向市民开展《广东省供用电条例》《安全生产法》《电力设施保护法》等的电力相关法律法规宣传，近三年举办的活动累计吸引了约6000名市民参与，对外派发各类普法宣传小册子2000余份，社会公众在互动中学习电力法律知识，营造了良好的法治氛围。
+
+
+                            </p>
+                            <p><br /></p>
+                            <p><img src="./images/ps/ps5.jpg" /><br /></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+
+
+
+
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>四、创新载体，注重实效，不断扩大电力普法影响
+
+
+
+                                    </strong></span></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">一是精准普法提升普法效率。量身定做普法宣教材料。​
+
+
+                            </p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p><img src="./images/ps/ps6.jpg" /><br /></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">​二是“互联网+普法”实现普法全覆盖，利用网络直播、微信公众号等方式开展互联网普法。
+
+
+
+                            </p>
+                            <p><br /></p>
+                            <p><img src="./images/ps/ps7.jpg" /><br /></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+
+                            <p style="text-indent:2em">三是积极开展法治文化创建活动。打造法治“联”文化品牌，以传承发扬法治精神作为特色，构建了以司法供电“内外联”，干部员工“上下联”，法律业务“左右联”为核心内容的法治文化品牌。
+
+
+                            </p>
+                            <p><br /></p>
+                            <p><img src="./images/ps/ps8.jpg" /><br /></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">在今后的普法工作中，台山供电局将对标“四个走在最前列”，进一步创新普法形式，丰富普法内容，严格落实“谁执法谁普法”工作责任制，全面推进电力普法工作，为建设法治台山作出新的更大贡献。
+
+
+
+                            </p>
+                            <p><br /></p>
+
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="intro" style=" margin-top: 10vw ">
+                <div class="intro-title"><img src="./images/icon/intro_2.png"></div>
+                <div class="intro-content">
+                    <div class="mark cl">
+                        <div class="mark-item mark-topic">您对我们“谁执法谁普法”的工作评价如何？</div>
+                        <div class="mark-item mark-option" data-value="0">很好</div>
+                        <div class="mark-item mark-option" data-value="1">良好</div>
+                        <div class="mark-item mark-option" data-value="2">一般</div>
+                        <div class="mark-item mark-topic btns">
+                            <a class="btn btn-back" href="./index.html">返回首页</a>
+                            <div class="btn btn-submit">提交</div>
+                        </div>
+                    </div>
+                    <!--a class="btn btn-back" href="javascript:history.back();">返回首页</a-->
+                    <input type="hidden" name="answer_id">
+                    <input type="hidden" name="item_id" value="7">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/zepto.min.js"></script>
+    <script>
+
+
+        $(function () {
+            $('.mark-option').on('click', function (e) {
+                var el = $(this);
+                $('.mark-item.selected').removeClass('selected');
+                el.addClass('selected');
+                $('[name="answer_id"]').val(el.data('value'));
+            });
+
+            $('.btn-submit').on('click', function () {
+                var el = $(this);
+                if (el.hasClass('submitting'))
+                    return;
+
+                var answer_id = parseInt($('[name="answer_id"]').val());
+                var item_id = parseInt($('[name="item_id"]').val());
+
+                if (isNaN(answer_id))
+                    return alert('请选择您的评价');
+                el.text('提交中 ...').addClass('submitting');
+                $.post('http://wx.jmyuanren.com/addon/TxPyhd/Front/ajaxVote/token/gh_68921624a61d/item_id/7.html', { answer_id: answer_id, item_id: item_id }, function (json) {
+                    el.text('提交')
+                    if (json.error == 0) {
+                        $('.btn-submit').addClass('hidden');
+                        alert('提交成功，感谢您对我们的工作支持。');
+                    } else {
+                        alert(json.msg);
+                        el.removeClass('submitting');
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>

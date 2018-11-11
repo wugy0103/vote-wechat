@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>安排上了！台山市国家机关“谁执法谁普法”履职报告评议活动网上投票开启啦！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link href="./css/app.min.css" rel="stylesheet">
+    <style>
+        .bg-intro {
+                background-image: url(./images/icon/bg.jpg);
+                background-color: #eae9e4;
+            }
+            .banner {
+                text-align: center;
+                background-color: #fff;
+                padding: 0!important;
+                margin-bottom: 4vw;
+                min-height: 32vw;
+                overflow: hidden;
+                border: 2px solid #fff;
+            }
+            .hidden { display: none }
+            .btn {
+                font-size: 13px;
+                line-height: 36px;
+                border: 0;
+            }
+            .btn-back {
+                margin: 20px auto 0;
+                display: block;
+                width: 32vw;
+                text-align: center;
+                text-decoration: none;
+                padding: 0;
+            }
+            .mark-topic { line-height: 24px; }
+            .mark-item:not(.mark-topic) { font-size: 12px; padding: 0 }
+            .btn-submit {
+                background-color: #00bcd4;
+                color: #fff;
+                width: 32vw;
+            }
+
+            .mark-item.selected:before {
+                border-color: #00bcd4;
+                background-color: #00bcd4;
+            }
+
+            .intro-content img { width: 100%; }
+            .intro { padding: 0 3vw; }
+            .intro-wrapper {
+                background-color: #fefdf6;
+                border-radius: 8px;
+                padding: 4vw 3vw;
+            }
+
+            .btns {
+                padding: 20px 0 0 0;
+                text-align: center;
+            }
+
+            .btn {
+                display: inline-block;
+                margin: 0;
+            }
+
+            .btn + .btn { margin-left: 10px; }
+            .intro-content p{text-align: justify}
+
+            .comment {
+                -webkit-transform: translate3d(0,100vh,0);
+                -webkit-transform-origin: center bottom;
+                transform: translate3d(0,100vh,0);
+                transform-origin: center bottom;
+            }
+            .animated {
+                -webkit-transition: transform .2s ease-in-out;
+                transition: transform .2s ease-in-out;
+            }
+            .animating {
+                -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0);
+            }
+            .no-comment {
+                text-align: center;
+                padding: 40vw 0 0;
+            }
+
+            .comment-name.admin:before { background-color: #00bcd4; }
+            .comment-text { color: #777; }
+            .comment-message { padding-top: 0; }
+            .comment-name, .comment-text { font-size: 14px; }
+
+            .close {
+                background-color: rgba(0,0,0,.32);
+                border: 2px solid #fff;
+                border-radius: 50%;
+            }
+            .close:before, .close:after {
+                width: 5vw;
+                background-color: #fff;
+            }
+            /* .intro-title {
+                color: #2977CA;
+                width: auto !important;
+                font-size: 18px;
+            } */
+        </style>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=20141202"></script>
+    <script type="text/javascript">
+
+        var WXJSSDK = WXJSSDK || {}, WXAPI = WXAPI || {};
+        WXJSSDK.load = function (e) {
+            e.config && wx.config(e.config), wx.ready(function () {
+                e.ready && e.ready();
+            });
+        }, WXAPI.shares = function (e) {
+            wx.showOptionMenu(), wx.onMenuShareTimeline({
+                title: e.title,
+                link: e.shareCircle ? e.shareCircle : e.link,
+                imgUrl: e.imgUrl,
+                success: function () {
+                    "function" === typeof e.shareTimelineCallback && e.shareTimelineCallback();
+                },
+                cancel: function () { }
+            }), wx.onMenuShareAppMessage({
+                title: e.title,
+                desc: e.desc,
+                link: e.shareFriend ? e.shareFriend : e.link,
+                imgUrl: e.imgUrl,
+                type: e.type ? e.type : "link",
+                dataUrl: e.dataUrl ? e.dataUrl : "",
+                success: function () {
+                    "function" === typeof e.shareAppMessageCallback && e.shareAppMessageCallback();
+                },
+                cancel: function () { }
+            }), wx.onMenuShareQQ({
+                title: e.title,
+                desc: e.desc,
+                link: e.shareQQ ? e.shareQQ : e.link,
+                imgUrl: e.imgUrl,
+                success: function () { },
+                cancel: function () { }
+            }), wx.onMenuShareWeibo({
+                title: e.title,
+                desc: e.desc,
+                link: e.shareWeibo ? e.shareWeibo : e.link,
+                imgUrl: e.imgUrl,
+                success: function () { },
+                cancel: function () { }
+            });
+        }, window.WXAPI = WXAPI;
+        var wxShareData = {
+            title: "江门高新区（江海区）2018国家机关“谁执法谁普法”履职报告评议投票活动",
+            desc: "区检察院",
+            imgUrl: "http://wx.jmyuanren.com/Addons/TxPyhd/View/default/static/img/share.jpg",
+            shareFriend: "http://wx.jmyuanren.com/addon/TxPyhd/Front/items/item_id/7/token/gh_68921624a61d.html",
+            shareCircle: "http://wx.jmyuanren.com/addon/TxPyhd/Front/items/item_id/7/token/gh_68921624a61d.html",
+        };
+        WXJSSDK.load({
+            config: {
+                debug: false,
+                appId: "wx0f0e3ccca3a6ce5f",
+                timestamp: "1541501069",
+                nonceStr: "Wm3WZYTPz0wzccnW",
+                signature: "c9b116d95897621be42c0725fa08d28cbf4509aa",
+                jsApiList: ["onMenuShareAppMessage", "onMenuShareTimeline",]
+            },
+            ready: function () {
+                WXAPI.shares(wxShareData);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="bg-intro"></div>
+    <div class="app page-intro">
+        <div class="page">
+            <div class="title">市食品药品监督管理局</div>
+            <div class="banner"><img src="./images/fs/fs1.jpeg"></div>
+            <div class="intro">
+                <div class="intro-title"><img src="./images/icon/intro_1.png"></div>
+                <div class="intro-wrapper">
+                    <div class="intro-content">
+                        <p>
+                            <p style="line-height:30px; font-size: 20px;     text-align: center; margin-bottom: 3vw;color: #f00;">学法记于心，普法见于行</p>
+                            <p style="text-indent:2em">市食药监局坚持以习近平新时代中国特色社会主义思想为指导，贯彻落实“谁执法谁普法”的要求，紧紧围绕食品药品监管工作大局，一方面学法、知法、懂法、守法，提升依法行政、依法管理能力，另一方面坚持普法教育与执法实践相结合，逐步养成遇事思法、办事依法、言必合法、行必守法的良好习惯,全面提升食品药品行业依法生产经营水平，保障全市人民饮食用药安全，<b
+                                    style="">被授予“2011-2015年台山市法治宣传教育先进集体荣誉称号”</b>。</p>
+                            <p style="text-indent:2em"><br /></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>一、始终强化自身素质建设，着力提高依法履职能力</strong></span></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">充分发挥领导干部学法用法带头示范作用，将学法专题纳入局务会议和党组中心组常规学习内容。
+                            </p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p><img src="./images/fs/fs2.jpeg" /><br /></p>
+                            <p><br /></p>
+
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>二、实施强化普法宣传教育，推动食药安全社会共治</strong></span></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">以食品安全示范区和化妆品安全示范区创建为契机，积极组织“食品安全周”、“安全用药月”、“食品药品投诉举报工作宣传”等重大活动，营造出食品药品监管良好的舆论氛围。利用宣传栏、官方微博、微信、政务网站、电视、报刊等载体，提升广大市民的法律意识。
+                            </p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p><img src="./images/fs/fs3.jpeg" /><br /></p>
+                            <p><br /></p>
+
+
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>三、始终强化执法普法实效，普法亮点凸显成效显著</strong></span></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p><img src="./images/fs/fs4.jpeg" /><br /></p>
+                            <p style="
+                            text-align: center;
+                            font-size: 12px;
+                            color: #666;
+                            padding: 10px;
+                            line-height: 18px;
+                            ">（市食药监局代表在江门市食品药品快检技术竞赛中获得团体亚军和优秀组织奖）</p>
+                            <p><img src="./images/fs/fs5.jpeg" /><br /></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">没有“普法”就没有“执法”，台山市食品药品监督管理局将继续做好做实执法与普法同步，执法普法永远在路上！
+
+                            </p>
+                            <p><br /></p>
+
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="intro" style=" margin-top: 10vw ">
+                <div class="intro-title"><img src="./images/icon/intro_2.png"></div>
+                <div class="intro-content">
+                    <div class="mark cl">
+                        <div class="mark-item mark-topic">您对我们“谁执法谁普法”的工作评价如何？</div>
+                        <div class="mark-item mark-option" data-value="0">很好</div>
+                        <div class="mark-item mark-option" data-value="1">良好</div>
+                        <div class="mark-item mark-option" data-value="2">一般</div>
+                        <div class="mark-item mark-topic btns">
+                            <a class="btn btn-back" href="./index.html">返回首页</a>
+                            <div class="btn btn-submit">提交</div>
+                        </div>
+                    </div>
+                    <!--a class="btn btn-back" href="javascript:history.back();">返回首页</a-->
+                    <input type="hidden" name="answer_id">
+                    <input type="hidden" name="item_id" value="7">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/zepto.min.js"></script>
+    <script>
+
+
+        $(function () {
+            $('.mark-option').on('click', function (e) {
+                var el = $(this);
+                $('.mark-item.selected').removeClass('selected');
+                el.addClass('selected');
+                $('[name="answer_id"]').val(el.data('value'));
+            });
+
+            $('.btn-submit').on('click', function () {
+                var el = $(this);
+                if (el.hasClass('submitting'))
+                    return;
+
+                var answer_id = parseInt($('[name="answer_id"]').val());
+                var item_id = parseInt($('[name="item_id"]').val());
+
+                if (isNaN(answer_id))
+                    return alert('请选择您的评价');
+                el.text('提交中 ...').addClass('submitting');
+                $.post('http://wx.jmyuanren.com/addon/TxPyhd/Front/ajaxVote/token/gh_68921624a61d/item_id/7.html', { answer_id: answer_id, item_id: item_id }, function (json) {
+                    el.text('提交')
+                    if (json.error == 0) {
+                        $('.btn-submit').addClass('hidden');
+                        alert('提交成功，感谢您对我们的工作支持。');
+                    } else {
+                        alert(json.msg);
+                        el.removeClass('submitting');
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>

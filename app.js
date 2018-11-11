@@ -38,6 +38,10 @@ app.use('/', test);
 var demo = require('./routes/demo/index.js');
 app.use('/demo/', demo);
 
+//微信投票系统
+var vote = require('./routes/vote/index.js');
+app.use('/vote', vote);
+
 /********************************路由配置 End********************************/
 
 // catch 404 and forward to error handler

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>安排上了！台山市国家机关“谁执法谁普法”履职报告评议活动网上投票开启啦！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link href="./css/app.min.css" rel="stylesheet">
+    <style>
+        .bg-intro {
+                background-image: url(./images/icon/bg.jpg);
+                background-color: #eae9e4;
+            }
+            .banner {
+                text-align: center;
+                background-color: #fff;
+                padding: 0!important;
+                margin-bottom: 4vw;
+                min-height: 32vw;
+                overflow: hidden;
+                border: 2px solid #fff;
+            }
+            .hidden { display: none }
+            .btn {
+                font-size: 13px;
+                line-height: 36px;
+                border: 0;
+            }
+            .btn-back {
+                margin: 20px auto 0;
+                display: block;
+                width: 32vw;
+                text-align: center;
+                text-decoration: none;
+                padding: 0;
+            }
+            .mark-topic { line-height: 24px; }
+            .mark-item:not(.mark-topic) { font-size: 12px; padding: 0 }
+            .btn-submit {
+                background-color: #00bcd4;
+                color: #fff;
+                width: 32vw;
+            }
+
+            .mark-item.selected:before {
+                border-color: #00bcd4;
+                background-color: #00bcd4;
+            }
+
+            .intro-content img { width: 100%; }
+            .intro { padding: 0 3vw; }
+            .intro-wrapper {
+                background-color: #fefdf6;
+                border-radius: 8px;
+                padding: 4vw 3vw;
+            }
+
+            .btns {
+                padding: 20px 0 0 0;
+                text-align: center;
+            }
+
+            .btn {
+                display: inline-block;
+                margin: 0;
+            }
+
+            .btn + .btn { margin-left: 10px; }
+            .intro-content p{text-align: justify}
+
+            .comment {
+                -webkit-transform: translate3d(0,100vh,0);
+                -webkit-transform-origin: center bottom;
+                transform: translate3d(0,100vh,0);
+                transform-origin: center bottom;
+            }
+            .animated {
+                -webkit-transition: transform .2s ease-in-out;
+                transition: transform .2s ease-in-out;
+            }
+            .animating {
+                -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0);
+            }
+            .no-comment {
+                text-align: center;
+                padding: 40vw 0 0;
+            }
+
+            .comment-name.admin:before { background-color: #00bcd4; }
+            .comment-text { color: #777; }
+            .comment-message { padding-top: 0; }
+            .comment-name, .comment-text { font-size: 14px; }
+
+            .close {
+                background-color: rgba(0,0,0,.32);
+                border: 2px solid #fff;
+                border-radius: 50%;
+            }
+            .close:before, .close:after {
+                width: 5vw;
+                background-color: #fff;
+            }
+            /* .intro-title {
+                color: #2977CA;
+                width: auto !important;
+                font-size: 18px;
+            } */
+        </style>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=20141202"></script>
+    <script type="text/javascript">
+
+        var WXJSSDK = WXJSSDK || {}, WXAPI = WXAPI || {};
+        WXJSSDK.load = function (e) {
+            e.config && wx.config(e.config), wx.ready(function () {
+                e.ready && e.ready();
+            });
+        }, WXAPI.shares = function (e) {
+            wx.showOptionMenu(), wx.onMenuShareTimeline({
+                title: e.title,
+                link: e.shareCircle ? e.shareCircle : e.link,
+                imgUrl: e.imgUrl,
+                success: function () {
+                    "function" === typeof e.shareTimelineCallback && e.shareTimelineCallback();
+                },
+                cancel: function () { }
+            }), wx.onMenuShareAppMessage({
+                title: e.title,
+                desc: e.desc,
+                link: e.shareFriend ? e.shareFriend : e.link,
+                imgUrl: e.imgUrl,
+                type: e.type ? e.type : "link",
+                dataUrl: e.dataUrl ? e.dataUrl : "",
+                success: function () {
+                    "function" === typeof e.shareAppMessageCallback && e.shareAppMessageCallback();
+                },
+                cancel: function () { }
+            }), wx.onMenuShareQQ({
+                title: e.title,
+                desc: e.desc,
+                link: e.shareQQ ? e.shareQQ : e.link,
+                imgUrl: e.imgUrl,
+                success: function () { },
+                cancel: function () { }
+            }), wx.onMenuShareWeibo({
+                title: e.title,
+                desc: e.desc,
+                link: e.shareWeibo ? e.shareWeibo : e.link,
+                imgUrl: e.imgUrl,
+                success: function () { },
+                cancel: function () { }
+            });
+        }, window.WXAPI = WXAPI;
+        var wxShareData = {
+            title: "江门高新区（江海区）2018国家机关“谁执法谁普法”履职报告评议投票活动",
+            desc: "区检察院",
+            imgUrl: "http://wx.jmyuanren.com/Addons/TxPyhd/View/default/static/img/share.jpg",
+            shareFriend: "http://wx.jmyuanren.com/addon/TxPyhd/Front/items/item_id/7/token/gh_68921624a61d.html",
+            shareCircle: "http://wx.jmyuanren.com/addon/TxPyhd/Front/items/item_id/7/token/gh_68921624a61d.html",
+        };
+        WXJSSDK.load({
+            config: {
+                debug: false,
+                appId: "wx0f0e3ccca3a6ce5f",
+                timestamp: "1541501069",
+                nonceStr: "Wm3WZYTPz0wzccnW",
+                signature: "c9b116d95897621be42c0725fa08d28cbf4509aa",
+                jsApiList: ["onMenuShareAppMessage", "onMenuShareTimeline",]
+            },
+            ready: function () {
+                WXAPI.shares(wxShareData);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="bg-intro"></div>
+    <div class="app page-intro">
+        <div class="page">
+            <div class="title">台山市环境保护局</div>
+            <div class="banner"><img src="./images/ep/ep1.jpg"></div>
+            <div class="intro">
+                <div class="intro-title"><img src="./images/icon/intro_1.png"></div>
+                <div class="intro-wrapper">
+                    <div class="intro-content">
+                        <p>
+                            <p style="line-height:30px; font-size: 20px;     text-align: center; margin-bottom: 3vw;color: #f00;">践行环保普法 守护绿水青山</p>
+                            <p style="text-indent:2em">2016年以来，市环保局全面履行“谁执法谁普法”职责，紧紧围绕环保中心工作，把普法工作融于法治宣传教育、行政执法检查、科普宣传等工作，为台山绿水青山建起“法治屏障”。
+                            </p>
+                            <p style="text-indent:2em"><br /></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>一、深入开展法律培训</strong></span></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">实施全面推广、集中深化的法律培训及普法讲座，大幅增强全市党政队伍依法履职的能力。
+                            </p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p><img src="./images/ep/ep2.jpeg" /><br /></p>
+                            <p><br /></p>
+
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>二、公众普法全面铺开
+                                    </strong></span></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">将公众普法全方位、多角度铺开，广泛凝聚社会共识，让公众懂法、守法、学法和用法。
+                            </p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p><img src="./images/ep/ep3.jpeg" /><br /></p>
+                            <p><br /></p>
+
+
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>三、结合日常监管，落实普法责任
+
+                                    </strong></span></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">坚持执法与服务相结合，做好环保法律法规的宣传和教育，指导企业管好用好治理设施。
+
+                            </p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p><img src="./images/ep/ep4.jpeg" /><br /></p>
+                            <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
+                            <p style="text-indent:2em">下一步，市环保局将深入推进新出台及新修订法律法规的宣传工作，健全普法工作机制，合理安排普法内容，加大普法宣传教育的深度，增强普法内容的科学性，促使“谁执法谁普法”工作取得更好的宣传效果。
+
+                            </p>
+                            <p><br /></p>
+
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="intro" style=" margin-top: 10vw ">
+                <div class="intro-title"><img src="./images/icon/intro_2.png"></div>
+                <div class="intro-content">
+                    <div class="mark cl">
+                        <div class="mark-item mark-topic">您对我们“谁执法谁普法”的工作评价如何？</div>
+                        <div class="mark-item mark-option" data-value="0">很好</div>
+                        <div class="mark-item mark-option" data-value="1">良好</div>
+                        <div class="mark-item mark-option" data-value="2">一般</div>
+                        <div class="mark-item mark-topic btns">
+                            <a class="btn btn-back" href="./index.html">返回首页</a>
+                            <div class="btn btn-submit">提交</div>
+                        </div>
+                    </div>
+                    <!--a class="btn btn-back" href="javascript:history.back();">返回首页</a-->
+                    <input type="hidden" name="answer_id">
+                    <input type="hidden" name="item_id" value="7">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/zepto.min.js"></script>
+    <script>
+    
+
+        $(function () {
+            $('.mark-option').on('click', function (e) {
+                var el = $(this);
+                $('.mark-item.selected').removeClass('selected');
+                el.addClass('selected');
+                $('[name="answer_id"]').val(el.data('value'));
+            });
+
+            $('.btn-submit').on('click', function () {
+                var el = $(this);
+                if (el.hasClass('submitting'))
+                    return;
+
+                var answer_id = parseInt($('[name="answer_id"]').val());
+                var item_id = parseInt($('[name="item_id"]').val());
+
+                if (isNaN(answer_id))
+                    return alert('请选择您的评价');
+                el.text('提交中 ...').addClass('submitting');
+                $.post('http://wx.jmyuanren.com/addon/TxPyhd/Front/ajaxVote/token/gh_68921624a61d/item_id/7.html', { answer_id: answer_id, item_id: item_id }, function (json) {
+                    el.text('提交')
+                    if (json.error == 0) {
+                        $('.btn-submit').addClass('hidden');
+                        alert('提交成功，感谢您对我们的工作支持。');
+                    } else {
+                        alert(json.msg);
+                        el.removeClass('submitting');
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>
