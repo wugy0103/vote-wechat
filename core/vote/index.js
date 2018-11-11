@@ -41,21 +41,35 @@ vote.postData = function (req, res, next) {
         console.log(result);
         console.log('------------------------------------------------------------\n\n');
         if (result.length === 0) {
-            addLog(req.body, ()=>{
-                req.body = {
-                    success: true,
-                    message: '评论成功！感谢您对我们工作的支持',
-                    data: {}
-                };
-                return next();
+            addLog({
+                cb: () => {
+                    req.body = {
+                        success: true,
+                        message: '评论成功！感谢您对我们工作的支持',
+                        data: {}
+                    };
+                    return next();
+                },
+                userid: req.body.userid,
+                answer_id: req.body.answer_id,
+                item_id: req.body.item_id
             });
         } else {
-            vote.editLog(req.body);
+            editLog({
+                data: result[0],
+                cb: (data) => {
+                    req.body = data;
+                    return next();
+                },
+                userid: req.body.userid,
+                answer_id: req.body.answer_id,
+                item_id: req.body.item_id
+            });
         }
     });
 };
 
-var addLog = function ({ userid, answer_id, item_id }, cb) {
+var addLog = function ({ userid, answer_id, item_id, cb }) {
     var addSql = 'INSERT INTO userlog(id,userid,court,ep,fs,pp,ps) VALUES(0,?,?,?,?,?,?)';
     var addSqlParams = [userid, 'null', 'null', 'null', 'null', 'null'];
     switch (item_id) {
@@ -93,6 +107,27 @@ var addLog = function ({ userid, answer_id, item_id }, cb) {
         
         }
         
+    });
+};
+
+var editLog = function ({ userid, answer_id, item_id, cb, data }) {
+    if (data[item_id]) {
+        cb({
+            success: false,
+            message: '抱歉！您已经对该单位评价过了',
+            data: {}
+        });
+    }
+    var modSql = `UPDATE userlog SET ${item_id} = ${answer_id} WHERE userid = '${userid}'`;
+    sqlpool.query(modSql, function (result2, fields) {
+        console.log('--------------------------修改userlog表数据----------------------------');
+        console.log(result2);
+        console.log('------------------------------------------------------------\n\n');
+        cb({
+            success: true,
+            message: '评论成功！感谢您对我们工作的支持',
+            data: {}
+        })
     });
 };
 

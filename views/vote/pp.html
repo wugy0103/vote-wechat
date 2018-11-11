@@ -248,48 +248,13 @@
                     </div>
                     <!--a class="btn btn-back" href="javascript:history.back();">返回首页</a-->
                     <input type="hidden" name="answer_id">
-                    <input type="hidden" name="item_id" value="7">
+                    <input type="hidden" name="item_id" value="pp">
                 </div>
             </div>
         </div>
     </div>
     <script src="./js/zepto.min.js"></script>
-    <script>
-    
-
-        $(function () {
-            $('.mark-option').on('click', function (e) {
-                var el = $(this);
-                $('.mark-item.selected').removeClass('selected');
-                el.addClass('selected');
-                $('[name="answer_id"]').val(el.data('value'));
-            });
-
-            $('.btn-submit').on('click', function () {
-                var el = $(this);
-                if (el.hasClass('submitting'))
-                    return;
-
-                var answer_id = parseInt($('[name="answer_id"]').val());
-                var item_id = parseInt($('[name="item_id"]').val());
-
-                if (isNaN(answer_id))
-                    return alert('请选择您的评价');
-                el.text('提交中 ...').addClass('submitting');
-                $.post('http://wx.jmyuanren.com/addon/TxPyhd/Front/ajaxVote/token/gh_68921624a61d/item_id/7.html', { answer_id: answer_id, item_id: item_id }, function (json) {
-                    el.text('提交')
-                    if (json.error == 0) {
-                        $('.btn-submit').addClass('hidden');
-                        alert('提交成功，感谢您对我们的工作支持。');
-                    } else {
-                        alert(json.msg);
-                        el.removeClass('submitting');
-                    }
-                });
-            });
-
-        });
-    </script>
+    <script src="./js/vote.js"></script>
 </body>
 
 </html>
