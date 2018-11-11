@@ -13,7 +13,7 @@ var testsql = {};
 exports.testsql = testsql;
 
 testsql.query = function (req, res, next) {
-    connection.connect();
+    // connection.connect();
         // connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
         //     if (error) throw error;
         //     console.log('The solution is:111111 ', results);
@@ -53,7 +53,7 @@ testsql.add = function (req,res,next) {
         console.log('-----------------------------------------------------------------\n\n');
     });
 
-    connection.end();
+    // connection.end();
     return next();
 
 }

@@ -1,9 +1,4 @@
-/*
- * @Author: tangwenyong
- * @Date:   2016-09-28 10:56:53
- * @Last Modified by:   tangwenyong
- * @Last Modified time: 2016-09-28 16:33:33
- */
+
 var apis = require("../api").apis;
 var request = require('request');
 var globals = require('../../common/global').global;

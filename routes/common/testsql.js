@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var testsql = require('../core/testsql').testsql;
+var testsql = require('../../core/common/testsql').testsql;
 module.exports = router;
 
 router.get('/', testsql.add, testsql.query, function (req, res) {
