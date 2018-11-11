@@ -6,6 +6,7 @@ var connection = mysql.createConnection({
     password: 'vote-wechat',
     database: 'vote_wechat'
 });
+    connection.connect();
 
 
 
@@ -31,13 +32,13 @@ testsql.query = function (req, res, next) {
             console.log('------------------------------------------------------------\n\n');
         });
 
-        connection.end();
+        // connection.end();
         return next();
 
 }
 
 testsql.add = function (req,res,next) {
-    connection.connect();
+    // connection.connect();
 
     var addSql = 'INSERT INTO websites(Id,name,url,alexa,country) VALUES(0,?,?,?,?)';
     var addSqlParams = ['菜鸟工具', 'https://c.runoob.com', '23453', 'CN'];

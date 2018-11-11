@@ -28,7 +28,7 @@ app.use('/common/getSignature', getSignature);
 
 //测试sql页面
 var testsql = require('./routes/common/testsql.js');
-app.use('/common/testsql/', testsql);
+app.use('/common/testsql', testsql);
 
 //测试页面
 var test = require('./routes/test.js');
