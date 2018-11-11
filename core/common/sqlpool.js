@@ -5,7 +5,7 @@ var pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: 'vote-wechat',
-    database: 'vote_wechat'
+    database: 'vote'
 });
 exports.query = function (sql, arr, callback) {
     //建立链接

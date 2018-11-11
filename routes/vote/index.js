@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
+var vote = require('../../core/vote/index').vote;
 module.exports = router;
 
-router.get('/index', function(req, res) {
+router.get('/index', vote.genIndexInfo, function(req, res) {
     var tpl = 'vote/index';
     //req.body.date = req.params.date;
     //req.body.params = req.query.id;
-    res.render(tpl, req.body);
+    res.render(tpl, req.body.indexObj);
 });
 
 router.get('/court', function (req, res) {

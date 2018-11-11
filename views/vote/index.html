@@ -326,141 +326,36 @@
                 </div>
             </div>
             <div class="vote-items">
-                <div class="vote-item" data-id="7">
-                    <a href="./ep" class="item-wrapper">
-                        <div class="item-image"><img src="./images/ep/ep1.jpg"></div>
+                {{each govList as item i}}
+                <div class="vote-item" data-id="{{item.id}}">
+                    <a href="./{{item.name_en}}" class="item-wrapper">
+                        <div class="item-image"><img src="./images/{{item.name_en}}/{{item.name_en}}1.jpg"></div>
                         <div class="item-desc">
-                            <p class="desc-1">市环保局</p>
-
+                            <p class="desc-1">{{item.name}}</p>
+                
                             <div class="desc-2">
                                 <div class="data-item">
                                     <div class="data-wrap">
                                         <span>很好:</span>
-                                        <span class="fr">2543票</span></div>
+                                        <span class="fr">{{item.aLevel}}票</span></div>
                                 </div>
                                 <div class="data-item">
                                     <div class="data-wrap">
                                         <span>良好:</span>
-                                        <span class="fr">55票</span></div>
+                                        <span class="fr">{{item.bLevel}}票</span></div>
                                 </div>
                                 <div class="data-item">
                                     <div class="data-wrap">
                                         <span>一般:</span>
-                                        <span class="fr">30票</span></div>
+                                        <span class="fr">{{item.cLevel}}票</span></div>
                                 </div>
                             </div>
-
+                
                         </div>
                     </a>
                 </div>
-                <div class="vote-item" data-id="8">
-                    <a href="./fs" class="item-wrapper">
-                        <div class="item-image"><img src="./images/fs/fs1.jpeg"></div>
-                        <div class="item-desc">
-                            <p class="desc-1">市食监局</p>
-
-                            <div class="desc-2">
-                                <div class="data-item">
-                                    <div class="data-wrap">
-                                        <span>很好:</span>
-                                        <span class="fr">1432票</span></div>
-                                </div>
-                                <div class="data-item">
-                                    <div class="data-wrap">
-                                        <span>良好:</span>
-                                        <span class="fr">27票</span></div>
-                                </div>
-                                <div class="data-item">
-                                    <div class="data-wrap">
-                                        <span>一般:</span>
-                                        <span class="fr">17票</span></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </a>
-                </div>
-                <div class="vote-item" data-id="9">
-                    <a href="./pp" class="item-wrapper">
-                        <div class="item-image"><img src="./images/pp/pp1.jpeg"></div>
-                        <div class="item-desc">
-                            <p class="desc-1">市检察院</p>
-
-                            <div class="desc-2">
-                                <div class="data-item">
-                                    <div class="data-wrap">
-                                        <span>很好:</span>
-                                        <span class="fr">2072票</span></div>
-                                </div>
-                                <div class="data-item">
-                                    <div class="data-wrap">
-                                        <span>良好:</span>
-                                        <span class="fr">47票</span></div>
-                                </div>
-                                <div class="data-item">
-                                    <div class="data-wrap">
-                                        <span>一般:</span>
-                                        <span class="fr">22票</span></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </a>
-                </div>
-                <div class="vote-item" data-id="10">
-                    <a href="./ps" class="item-wrapper">
-                        <div class="item-image"><img src="./images/court/court1.jpeg"></div>
-                        <div class="item-desc">
-                            <p class="desc-1">市法院</p>
-
-                            <div class="desc-2">
-                                <div class="data-item">
-                                    <div class="data-wrap">
-                                        <span>很好:</span>
-                                        <span class="fr">1096票</span></div>
-                                </div>
-                                <div class="data-item">
-                                    <div class="data-wrap">
-                                        <span>良好:</span>
-                                        <span class="fr">49票</span></div>
-                                </div>
-                                <div class="data-item">
-                                    <div class="data-wrap">
-                                        <span>一般:</span>
-                                        <span class="fr">26票</span></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </a>
-                </div>
-                <div class="vote-item" data-id="11">
-                    <a href="./court" class="item-wrapper">
-                        <div class="item-image"><img src="./images/ps/ps1.jpg"></div>
-                        <div class="item-desc">
-                            <p class="desc-1">市供电局</p>
-
-                            <div class="desc-2">
-                                <div class="data-item">
-                                    <div class="data-wrap">
-                                        <span>很好:</span>
-                                        <span class="fr">2720票</span></div>
-                                </div>
-                                <div class="data-item">
-                                    <div class="data-wrap">
-                                        <span>良好:</span>
-                                        <span class="fr">179票</span></div>
-                                </div>
-                                <div class="data-item">
-                                    <div class="data-wrap">
-                                        <span>一般:</span>
-                                        <span class="fr">93票</span></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </a>
-                </div>
+                {{/each}}
+                   
             </div>
         </div>
 
