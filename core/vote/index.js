@@ -41,14 +41,21 @@ vote.postData = function (req, res, next) {
         console.log(result);
         console.log('------------------------------------------------------------\n\n');
         if (result.length === 0) {
-            addLog(req.body);
+            addLog(req.body, ()=>{
+                req.body = {
+                    success: true,
+                    message: '评论成功！感谢您对我们工作的支持',
+                    data: {}
+                };
+                return next();
+            });
         } else {
             vote.editLog(req.body);
         }
     });
 };
 
-var addLog = function ({ userid, answer_id, item_id }) {
+var addLog = function ({ userid, answer_id, item_id }, cb) {
     var addSql = 'INSERT INTO userlog(id,userid,court,ep,fs,pp,ps) VALUES(0,?,?,?,?,?,?)';
     var addSqlParams = [userid, 'null', 'null', 'null', 'null', 'null'];
     switch (item_id) {
@@ -73,15 +80,34 @@ var addLog = function ({ userid, answer_id, item_id }) {
         console.log('--------------------------新增用户数据----------------------------');
         console.log(result);
         console.log('------------------------------------------------------------\n\n');
+        switch (answer_id) {
+            case '0':
+                editLevel('aLevel', item_id, cb);
+                break;
+            case '1':
+                editLevel('bLevel', item_id, cb);
+                break;
+            case '2':
+                editLevel('cLevel', item_id, cb);
+                break;
+        
+        }
         
     });
 };
 
-var editLevel = function () {
-    sqlpool.query(addSql, addSqlParams, function (result, fields) {
-        console.log('--------------------------修改level表数据----------------------------');
+var editLevel = function (answer_id,item_id, cb) {
+    let sql = `SELECT * FROM level WHERE name_en = '${item_id}'`;
+    sqlpool.query(sql, [], function (result, fields) {
+        console.log('--------------------------获取当前投票数----------------------------');
         console.log(result);
         console.log('------------------------------------------------------------\n\n');
-
+        var modSql = `UPDATE level SET ${answer_id} = ${parseInt(result[0][answer_id]) + 1} WHERE name_en = '${item_id}'`;
+        sqlpool.query(modSql, function (result2, fields) {
+            console.log('--------------------------修改level表数据----------------------------');
+            console.log(result2);
+            console.log('------------------------------------------------------------\n\n');
+            cb()
+        });
     });
 }
