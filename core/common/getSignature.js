@@ -116,3 +116,27 @@ signature.GetConfig = function(req, res, next) {
     console.log("返回微信配置参数", req.body.ConfigData)
     return next();
 }
+
+// 获取openid和网页授权access_token
+signature.GetOpenId = function (req, res, next) {
+    console.info('GetOpenId', req.query.code);
+    let reqJson = apis.GetOpenId(req.query.code);
+    console.info('GetOpenId2', reqJson);
+    request(reqJson, (error, response, body)=>{
+        if (!error && response.statusCode == 200) {
+            var json = JSON.parse(body);
+            console.info("获取GetOpenId返回:", json);
+            if (json.openid) {
+                // res.cookie('openid', json.openid, { maxAge: 6600000 });
+                // tokenKeep_openid = json.openid;
+                // keepTime_openid = new Date().getTime();
+                req.body.openid = json.openid;
+                return next();
+            }
+            return res.json({ error: json.errcode, message: json.errmsg });
+        } else {
+            return res.render('error', { error: -2, message: "服务器异常" });
+        }
+    });
+
+}

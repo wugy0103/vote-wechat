@@ -6,16 +6,20 @@ apis.contentHeader = { 'Content-Type': 'application/json' };
 // 微信API接口地址
 var wechatBaseUrl = 'https://api.weixin.qq.com/cgi-bin/';
 // 微信appid
-apis.appid = "wx4ce4c73bd3de16d8";
+apis.appid = "wx43a1633aa2771da3";
 // 微信appsecret
-apis.appsecret = "8870969e8a9b730a23356303a51673f1";
+apis.appsecret = "9167374ec28ad0492ae5abad4e7517e7";
 // 获取微信access_token
-apis.AccessTokenUrl = wechatBaseUrl+"token";
+apis.AccessTokenUrl = wechatBaseUrl + "token";
 apis.GetAccessToken = { url: apis.AccessTokenUrl, method: "GET", headers: apis.contentHeader };
 
 // 获取微信ticket
-apis.TicketUrl = wechatBaseUrl+"ticket/getticket";
+apis.TicketUrl = wechatBaseUrl + "ticket/getticket";
 apis.GetTicket = { url: apis.TicketUrl, method: "GET", headers: apis.contentHeader };
+
+apis.authorizeUrl = ({ redirect_uri, scope }) => {
+    return `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${apis.appid}&redirect_uri=${redirect_uri}&response_type=code&scope=${scope}&state=STATE#wechat_redirect`;
+}
 
 //商城地址
 apis.mallBase = 'http://192.168.50.52';

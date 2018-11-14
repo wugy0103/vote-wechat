@@ -59,3 +59,19 @@ var wechatConfig = {
         });
     }
 }
+
+var title = "安排上了！台山市国家机关“谁执法谁普法”履职报告评议活动网上投票开启啦！";
+var desc = "普法工作做得好不好，要看老百姓满不满意了";
+
+$.when(wechatConfig.init()).done(function () {
+    wx.ready(function () {
+        var sdata = {
+            title: title,
+            desc: desc,
+            link: "http://wechat.synet.vip/vote/index",
+            imgUrl: "http://wechat.synet.vip/vote/images_dist/banner.jpg"
+        };
+        wx.onMenuShareTimeline(sdata);
+        wx.onMenuShareAppMessage(sdata);
+    });
+});

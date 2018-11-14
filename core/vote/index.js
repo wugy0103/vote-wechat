@@ -1,7 +1,23 @@
 var sqlpool = require('../common/sqlpool');
 var logger = require('../../common/log/logHelper').helper;
+var apis = require("../api").apis;
+var signature = require("../common/getSignature").signature;
 var vote = {};
 exports.vote = vote;
+
+// 验证登陆
+vote.authorize = function (req, res, next) {
+    console.info("-----------------------请求信息----------------------------------");
+    console.info("authorize过来参数：", req.query);
+    console.info("----------------------------------------------------------------");
+    if (req.query.code) {
+        signature.GetOpenId(req, res, next);
+        return next();
+    } else {
+        let url = apis.authorizeUrl({ redirect_uri: `http://wechat.synet.vip${req.originalUrl}`, scope: 'snsapi_base' });
+        res.redirect(302, url);
+    }
+}
 
 //获取首页信息
 vote.genIndexInfo = function (req, res, next) {
@@ -19,7 +35,7 @@ vote.genIndexInfo = function (req, res, next) {
     });
 
 
-    
+
 };
 
 vote.postData = function (req, res, next) {
@@ -89,7 +105,7 @@ var addLog = function ({ userid, answer_id, item_id, cb }) {
             addSqlParams = [userid, 'null', 'null', 'null', 'null', answer_id];
             break;
     }
-    
+
     sqlpool.query(addSql, addSqlParams, function (result, fields) {
         console.log('--------------------------新增用户数据----------------------------');
         console.log(result);
@@ -104,9 +120,9 @@ var addLog = function ({ userid, answer_id, item_id, cb }) {
             case '2':
                 editLevel('cLevel', item_id, cb);
                 break;
-        
+
         }
-        
+
     });
 };
 
@@ -131,7 +147,7 @@ var editLog = function ({ userid, answer_id, item_id, cb, data }) {
     });
 };
 
-var editLevel = function (answer_id,item_id, cb) {
+var editLevel = function (answer_id, item_id, cb) {
     let sql = `SELECT * FROM level WHERE name_en = '${item_id}'`;
     sqlpool.query(sql, [], function (result, fields) {
         console.log('--------------------------获取当前投票数----------------------------');

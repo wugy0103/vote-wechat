@@ -1,20 +1,21 @@
 
 var mysql = require('mysql');
+/*
 var connection = mysql.createConnection({
-    host: 'localhost',
+    host: '68.168.138.16',
     user: 'root',
-    password: 'vote-wechat',
-    database: 'vote_wechat'
+    password: '757a9bb44994c53a',
+    database: 'vote'
 });
     connection.connect();
 
-
+*/
 
 var testsql = {};
 exports.testsql = testsql;
 
 testsql.query = function (req, res, next) {
-    // connection.connect();
+    /*// connection.connect();
         // connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
         //     if (error) throw error;
         //     console.log('The solution is:111111 ', results);
@@ -33,12 +34,13 @@ testsql.query = function (req, res, next) {
         });
 
         // connection.end();
+        */
         return next();
 
 }
 
 testsql.add = function (req,res,next) {
-    // connection.connect();
+  /*  // connection.connect();
 
     var addSql = 'INSERT INTO websites(Id,name,url,alexa,country) VALUES(0,?,?,?,?)';
     var addSqlParams = ['菜鸟工具', 'https://c.runoob.com', '23453', 'CN'];
@@ -55,6 +57,7 @@ testsql.add = function (req,res,next) {
     });
 
     // connection.end();
+    */
     return next();
 
 }

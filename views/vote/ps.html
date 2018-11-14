@@ -12,7 +12,7 @@
     <link href="./css/app.min.css" rel="stylesheet">
     <style>
         .bg-intro {
-                background-image: url(./images/icon/bg.jpg);
+                background-image: url(./images_dist/icon/bg.jpg);
                 background-color: #eae9e4;
             }
             .banner {
@@ -111,71 +111,7 @@
                 font-size: 18px;
             } */
         </style>
-    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=20141202"></script>
-    <script type="text/javascript">
-
-        var WXJSSDK = WXJSSDK || {}, WXAPI = WXAPI || {};
-        WXJSSDK.load = function (e) {
-            e.config && wx.config(e.config), wx.ready(function () {
-                e.ready && e.ready();
-            });
-        }, WXAPI.shares = function (e) {
-            wx.showOptionMenu(), wx.onMenuShareTimeline({
-                title: e.title,
-                link: e.shareCircle ? e.shareCircle : e.link,
-                imgUrl: e.imgUrl,
-                success: function () {
-                    "function" === typeof e.shareTimelineCallback && e.shareTimelineCallback();
-                },
-                cancel: function () { }
-            }), wx.onMenuShareAppMessage({
-                title: e.title,
-                desc: e.desc,
-                link: e.shareFriend ? e.shareFriend : e.link,
-                imgUrl: e.imgUrl,
-                type: e.type ? e.type : "link",
-                dataUrl: e.dataUrl ? e.dataUrl : "",
-                success: function () {
-                    "function" === typeof e.shareAppMessageCallback && e.shareAppMessageCallback();
-                },
-                cancel: function () { }
-            }), wx.onMenuShareQQ({
-                title: e.title,
-                desc: e.desc,
-                link: e.shareQQ ? e.shareQQ : e.link,
-                imgUrl: e.imgUrl,
-                success: function () { },
-                cancel: function () { }
-            }), wx.onMenuShareWeibo({
-                title: e.title,
-                desc: e.desc,
-                link: e.shareWeibo ? e.shareWeibo : e.link,
-                imgUrl: e.imgUrl,
-                success: function () { },
-                cancel: function () { }
-            });
-        }, window.WXAPI = WXAPI;
-        var wxShareData = {
-            title: "江门高新区（江海区）2018国家机关“谁执法谁普法”履职报告评议投票活动",
-            desc: "区检察院",
-            imgUrl: "http://wx.jmyuanren.com/Addons/TxPyhd/View/default/static/img/share.jpg",
-            shareFriend: "http://wx.jmyuanren.com/addon/TxPyhd/Front/items/item_id/7/token/gh_68921624a61d.html",
-            shareCircle: "http://wx.jmyuanren.com/addon/TxPyhd/Front/items/item_id/7/token/gh_68921624a61d.html",
-        };
-        WXJSSDK.load({
-            config: {
-                debug: false,
-                appId: "wx0f0e3ccca3a6ce5f",
-                timestamp: "1541501069",
-                nonceStr: "Wm3WZYTPz0wzccnW",
-                signature: "c9b116d95897621be42c0725fa08d28cbf4509aa",
-                jsApiList: ["onMenuShareAppMessage", "onMenuShareTimeline",]
-            },
-            ready: function () {
-                WXAPI.shares(wxShareData);
-            }
-        });
-    </script>
+  
 </head>
 
 <body>
@@ -183,9 +119,9 @@
     <div class="app page-intro">
         <div class="page">
             <div class="title">台山市人民法院</div>
-            <div class="banner"><img src="./images/ps/ps1.jpg"></div>
+            <div class="banner"><img src="./images_dist/ps/ps1.jpg"></div>
             <div class="intro">
-                <div class="intro-title"><img src="./images/icon/intro_1.png"></div>
+                <div class="intro-title"><img src="./images_dist/icon/intro_1.png"></div>
                 <div class="intro-wrapper">
                     <div class="intro-content">
                         <p>
@@ -200,7 +136,7 @@
                             <p style="text-indent:2em">为推进普法工作深入开展，近年来，台山法院按照“七五”普法规划，以夯实普法基础、落实普法责任为出发点，着力构建“谁执法谁普法”责任机制，推动普法工作落地生根。
                             </p>
                             <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
-                            <p><img src="./images/court/court2.jpeg" /><br /></p>
+                            <p><img src="./images_dist/court/court2.jpeg" /><br /></p>
                             <p><br /></p>
 
                             <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>二、坚持抓好法律学习，全面提高普法队伍素质
@@ -211,7 +147,7 @@
 
                             </p>
                             <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
-                            <p><img src="./images/court/court3.jpeg" /><br /></p>
+                            <p><img src="./images_dist/court/court3.jpeg" /><br /></p>
                             <p><br /></p>
 
 
@@ -225,7 +161,7 @@
 
                             </p>
                             <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
-                            <p><img src="./images/court/court4.jpeg" /><br /></p>
+                            <p><img src="./images_dist/court/court4.jpeg" /><br /></p>
                             <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
                             <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>四、服务台山发展大局，构建法院普法新常态
 
@@ -239,7 +175,7 @@
 
                             </p>
                             <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
-                            <p><img src="./images/court/court5.jpeg" /><br /></p>
+                            <p><img src="./images_dist/court/court5.jpeg" /><br /></p>
                             <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
                             <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong>五、创新宣传形式，增强法院普法实效
 
@@ -254,9 +190,9 @@
 
                             </p>
                             <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
-                            <p><img src="./images/court/court6.jpeg" /><br /></p>
+                            <p><img src="./images_dist/court/court6.jpeg" /><br /></p>
                             <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
-                            <p><img src="./images/court/court7.jpeg" /><br /></p>
+                            <p><img src="./images_dist/court/court7.jpeg" /><br /></p>
                             <p style="text-indent:2em"><span style="color: rgb(255, 0, 0);"><strong><br /></strong></span></p>
                             <p style="text-indent:2em">普法是全面依法治国的基础。市法院切实围绕审判执行职能，将普法工作融入日常工作，落到实处，进一步深化法治创建工作，为营造全市崇尚法治、践行法治的良好环境作出贡献。
 
@@ -270,7 +206,7 @@
                 </div>
             </div>
             <div class="intro" style=" margin-top: 10vw ">
-                <div class="intro-title"><img src="./images/icon/intro_2.png"></div>
+                <div class="intro-title"><img src="./images_dist/icon/intro_2.png"></div>
                 <div class="intro-content">
                     <div class="mark cl">
                         <div class="mark-item mark-topic">您对我们“谁执法谁普法”的工作评价如何？</div>
@@ -289,7 +225,9 @@
             </div>
         </div>
     </div>
-    <script src="./js/zepto.min.js"></script>
+    <script src="/common/js/zepto.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="/common/js/public.js"></script>
     <script src="./js/vote.js"></script>
 </body>
 
