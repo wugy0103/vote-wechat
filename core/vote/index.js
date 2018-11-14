@@ -7,12 +7,8 @@ exports.vote = vote;
 
 // 验证登陆
 vote.authorize = function (req, res, next) {
-    console.info("-----------------------请求信息----------------------------------");
-    console.info("authorize过来参数：", req.query);
-    console.info("----------------------------------------------------------------");
     if (req.query.code) {
         signature.GetOpenId(req, res, next);
-        return next();
     } else {
         let url = apis.authorizeUrl({ redirect_uri: `http://wechat.synet.vip${req.originalUrl}`, scope: 'snsapi_base' });
         res.redirect(302, url);
@@ -42,7 +38,7 @@ vote.postData = function (req, res, next) {
     console.info("-----------------------前端请求信息----------------------------------");
     console.info(req.body);
     console.info("----------------------------------------------------------------\n\n");
-    if ((req.body.answer_id !== '0' && req.body.answer_id !== '1' && req.body.answer_id !== '2') || (req.body.item_id !== 'court' && req.body.item_id !== 'ep' && req.body.item_id !== 'ps' && req.body.item_id !== 'pp' && req.body.item_id !== 'fs')) {
+    if (req.body.userid == '' || (req.body.answer_id !== '0' && req.body.answer_id !== '1' && req.body.answer_id !== '2') || (req.body.item_id !== 'court' && req.body.item_id !== 'ep' && req.body.item_id !== 'ps' && req.body.item_id !== 'pp' && req.body.item_id !== 'fs')) {
         req.body = {
             success: false,
             message: '参数非法'
@@ -50,7 +46,7 @@ vote.postData = function (req, res, next) {
         return next();
     }
 
-    var sql = `SELECT * FROM userlog where userid =${req.body.userid}`;
+    var sql = `SELECT * FROM userlog where userid = '${req.body.userid}'`;
     //查
     sqlpool.query(sql, [], function (result, fields) {
         console.log('--------------------------反查用户数据----------------------------');
@@ -73,13 +69,19 @@ vote.postData = function (req, res, next) {
         } else {
             editLog({
                 data: result[0],
-                cb: (data) => {
-                    req.body = data;
+                cb: () => {
+                    req.body = {
+                        success: true,
+                        message: '评论成功！感谢您对我们工作的支持',
+                        data: {}
+                    };
                     return next();
                 },
                 userid: req.body.userid,
                 answer_id: req.body.answer_id,
-                item_id: req.body.item_id
+                item_id: req.body.item_id,
+                req,
+                next
             });
         }
     });
@@ -126,24 +128,32 @@ var addLog = function ({ userid, answer_id, item_id, cb }) {
     });
 };
 
-var editLog = function ({ userid, answer_id, item_id, cb, data }) {
-    if (data[item_id]) {
-        cb({
+var editLog = function ({ userid, answer_id, item_id, cb, data, req, next }) {
+    if (data[item_id] !== 'null') {
+        req.body = {
             success: false,
             message: '抱歉！您已经对该单位评价过了',
             data: {}
-        });
+        };
+        return next();
     }
     var modSql = `UPDATE userlog SET ${item_id} = ${answer_id} WHERE userid = '${userid}'`;
     sqlpool.query(modSql, function (result2, fields) {
         console.log('--------------------------修改userlog表数据----------------------------');
         console.log(result2);
         console.log('------------------------------------------------------------\n\n');
-        cb({
-            success: true,
-            message: '评论成功！感谢您对我们工作的支持',
-            data: {}
-        })
+        switch (answer_id) {
+            case '0':
+                editLevel('aLevel', item_id, cb);
+                break;
+            case '1':
+                editLevel('bLevel', item_id, cb);
+                break;
+            case '2':
+                editLevel('cLevel', item_id, cb);
+                break;
+
+        }
     });
 };
 

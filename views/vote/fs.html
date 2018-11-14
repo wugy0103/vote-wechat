@@ -111,7 +111,9 @@
                 font-size: 18px;
             } */
         </style>
-    
+        <script src="/common/js/zepto.min.js"></script>
+        <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script src="/common/js/public.js"></script>
 </head>
 
 <body>
@@ -184,13 +186,12 @@
                     <!--a class="btn btn-back" href="javascript:history.back();">返回首页</a-->
                     <input type="hidden" name="answer_id">
                     <input type="hidden" name="item_id" value="fs">
+                    <input type="hidden" name="userid" value="{{openid}}">
                 </div>
             </div>
         </div>
     </div>
-    <script src="/common/js/zepto.min.js"></script>
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <script src="/common/js/public.js"></script>
+    
     <script src="./js/vote.js"></script>
 </body>
 

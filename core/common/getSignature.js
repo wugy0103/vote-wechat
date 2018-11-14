@@ -6,6 +6,7 @@ var crypto = require('crypto');
 var fs=require("fs");
 var signature = {};
 var tokenKeep,keepTime,ticketKeep,ticketKeepTime;
+var tokenKeep_openid, keepTime_openid, ticketKeep_openid, ticketKeepTime_openid;
 
 exports.signature = signature;
 
@@ -119,24 +120,42 @@ signature.GetConfig = function(req, res, next) {
 
 // 获取openid和网页授权access_token
 signature.GetOpenId = function (req, res, next) {
-    console.info('GetOpenId', req.query.code);
-    let reqJson = apis.GetOpenId(req.query.code);
-    console.info('GetOpenId2', reqJson);
-    request(reqJson, (error, response, body)=>{
-        if (!error && response.statusCode == 200) {
-            var json = JSON.parse(body);
-            console.info("获取GetOpenId返回:", json);
-            if (json.openid) {
-                // res.cookie('openid', json.openid, { maxAge: 6600000 });
-                // tokenKeep_openid = json.openid;
-                // keepTime_openid = new Date().getTime();
-                req.body.openid = json.openid;
-                return next();
+
+    var openid = req.cookies.openid;
+    var nowTime;
+    if (openid) {
+        console.info("在cookies返回openid：", openid);
+        req.body.openid = openid;
+        return next();
+    }
+
+    nowTime = new Date().getTime();
+    if (tokenKeep_openid == "" || tokenKeep_openid == undefined || tokenKeep_openid == null || keepTime_openid == undefined || (nowTime - keepTime_openid > 6000000)) {
+        let reqJson = apis.GetOpenId(req.query.code);
+        console.info('GetOpenId参数：', reqJson);
+        request(reqJson, (error, response, body) => {
+            if (!error && response.statusCode == 200) {
+                var json = JSON.parse(body);
+                console.info("获取GetOpenId返回:", json);
+                if (json.openid) {
+                    res.cookie('openid', json.openid, { maxAge: 6600000 });
+                    tokenKeep_openid = json.openid;
+                    keepTime_openid = new Date().getTime();
+                    req.body.openid = json.openid;
+                    return next();
+                }
+                return res.json({ error: json.errcode, message: json.errmsg });
+            } else {
+                return res.render('error', { error: -2, message: "服务器异常" });
             }
-            return res.json({ error: json.errcode, message: json.errmsg });
-        } else {
-            return res.render('error', { error: -2, message: "服务器异常" });
-        }
-    });
+        });
+
+    }
+    else {
+        req.body.openid = tokenKeep_openid;
+        return next();
+    }
+
+    
 
 }

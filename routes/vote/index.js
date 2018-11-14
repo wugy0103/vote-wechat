@@ -3,7 +3,7 @@ var router = express.Router();
 var vote = require('../../core/vote/index').vote;
 module.exports = router;
 
-router.get('/index', vote.authorize, vote.genIndexInfo, function (req, res) {
+router.get('/index', vote.genIndexInfo, function (req, res) {
     var tpl = 'vote/index';
     res.render(tpl, req.body.indexObj);
 });

@@ -13,12 +13,13 @@ $(function () {
 
         var answer_id = parseInt($('[name="answer_id"]').val());
         var item_id = $('[name="item_id"]').val();
+        var userid = $('[name="userid"]').val();
 
         if (isNaN(answer_id))
             return alert('请选择您的评价');
         el.text('提交中 ...').addClass('submitting');
         $.post('./addvote', {
-            userid: new Date().getTime(),
+            userid,
             answer_id,
             item_id
         }, function (json) {
