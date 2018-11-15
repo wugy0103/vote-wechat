@@ -9,14 +9,14 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="email=no">
-    <link href="./css/app.min.css" rel="stylesheet">
+    <link href="http://imgcdn5.zuzuche.com/assets/poi/miniprogram/wWorldCupForecast/wechat/css/app.min.css" rel="stylesheet">
     <style>
         .qianyan {
-            background-image: url(./images_dist/icon/gezi.png);
+            background-image: url(http://imgcdn5.zuzuche.com/assets/poi/miniprogram/wWorldCupForecast/wechat/images/gezi.png);
         }
 
         .qianyan:after {
-            background-image: url(./images_dist/icon/jianzhu.png);
+            background-image: url(http://imgcdn5.zuzuche.com/assets/poi/miniprogram/wWorldCupForecast/wechat/images/jianzhu.png);
         }
 
         .item-image {
@@ -109,16 +109,13 @@
         }
     </style>
 
-    <script src="/common/js/zepto.min.js"></script>
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <script src="/common/js/public.js"></script>
 </head>
 
 <body>
     <div class="app">
         <div class="page">
             <div class="banner">
-                <img src="./images_dist/banner.jpg">
+                <img src="http://imgcdn5.zuzuche.com/assets/poi/miniprogram/wWorldCupForecast/wechat/images/banner.jpg">
             </div>
             <div class="qianyan">
                 <!--div class="qianyan-title">
@@ -133,7 +130,7 @@
                     <section class="" data-tools="135编辑器" data-id="92360" style="border-width: 0px;border-style: none;border-color: initial;box-sizing: border-box;">
                         <section style="width: 100%;margin-right: auto;margin-left: auto;text-align: center;"
                             data-width="100%">
-                            <section style="width: auto;display: inline-block;padding: 25px 1.5em;background-image: url(./images_dist/icon/title.png);background-size: 100%;background-repeat: no-repeat;background-position: center center;margin-right: auto;margin-left: auto;overflow: hidden;box-sizing: border-box;">
+                            <section style="width: auto;display: inline-block;padding: 25px 1.5em;background-image: url(http://imgcdn5.zuzuche.com/assets/poi/miniprogram/wWorldCupForecast/wechat/images/title.png);background-size: 100%;background-repeat: no-repeat;background-position: center center;margin-right: auto;margin-left: auto;overflow: hidden;box-sizing: border-box;">
                                 <section class="" data-brushtype="text" style="font-size: 18px;letter-spacing: 2px;font-weight: bold;color: rgb(255, 255, 255);"><span
                                         style="font-size: 20px;color: rgb(244, 235, 139);">评审说明</span></section>
                             </section>
@@ -295,7 +292,7 @@
                 {{each govList item i}}
                 <div class="vote-item" data-id="{{item.id}}">
                     <a href="./{{item.name_en}}" class="item-wrapper">
-                        <div class="item-image"><img src="./images_dist/{{item.name_en}}/{{item.name_en}}1.jpg"></div>
+                        <div class="item-image"><img src="http://imgcdn5.zuzuche.com/assets/poi/miniprogram/wWorldCupForecast/wechat/images/{{item.name_en}}1.jpg"></div>
                         <div class="item-desc">
                             <p class="desc-1">{{item.name}}</p>
 
@@ -326,7 +323,9 @@
         </div>
 
     </div>
- 
+    <script src="http://imgcdn5.zuzuche.com/assets/poi/miniprogram/wWorldCupForecast/wechat/js/zepto.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="http://imgcdn5.zuzuche.com/assets/poi/miniprogram/wWorldCupForecast/wechat/js/public.js"></script>
 </body>
 
 </html>
