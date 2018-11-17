@@ -1,17 +1,13 @@
 var mysql = require('mysql');
 
-// password: 'vote-wechat',
-//     database: 'vote'
-
-// password: '757a9bb44994c53a',
-//     database: 'vote',
-
 // 创建 mysql 连接池资源
 var pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
-    password: '757a9bb44994c53a',
+    password: 'vote-wechat',
     database: 'vote',
+    // password: '757a9bb44994c53a',
+    // database: 'vote',
   	timeout: 60000
 });
 exports.query = function (sql, arr, callback) {

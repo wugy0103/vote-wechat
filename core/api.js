@@ -17,8 +17,18 @@ apis.GetAccessToken = { url: apis.AccessTokenUrl, method: "GET", headers: apis.c
 apis.TicketUrl = wechatBaseUrl + "ticket/getticket";
 apis.GetTicket = { url: apis.TicketUrl, method: "GET", headers: apis.contentHeader };
 
+// 登陆验证url
 apis.authorizeUrl = ({ redirect_uri, scope }) => {
     return `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${apis.appid}&redirect_uri=${redirect_uri}&response_type=code&scope=${scope}&state=STATE#wechat_redirect`;
+}
+
+// 获取openid
+apis.GetOpenId = (code) => {
+    return {
+        url: `https://api.weixin.qq.com/sns/oauth2/access_token?appid=${apis.appid}&secret=${apis.appsecret}&code=${code}&grant_type=authorization_code`,
+        method: "GET",
+        headers: apis.contentHeader
+    }
 }
 
 //商城地址
